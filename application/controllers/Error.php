@@ -15,7 +15,7 @@ class ErrorController extends \Yaf\Controller_Abstract
             dump($exception->getMessage());
             dump($exception);
         }
-        Log::error($exception->getMessage(), $exception->getTrace());
+        logError($exception->getMessage(), $exception->getTrace());
         return false;
     }
 }
