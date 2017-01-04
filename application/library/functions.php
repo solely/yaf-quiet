@@ -466,7 +466,8 @@ function isPost()
 
 function isXmlHttpRequest()
 {
-    return REQUEST_METHOD === 'XMLHTTPREQUEST' ? true : false;
+    return REQUEST_METHOD === 'XMLHTTPREQUEST' ? true :
+        (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtoupper($_SERVER['HTTP_X_REQUESTED_WITH']) === 'XMLHTTPREQUEST' ? true : false);
 }
 
 function isCli()
