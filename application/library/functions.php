@@ -456,12 +456,12 @@ function data_to_xml($data, $item='item', $id='id') {
 
 function isGet()
 {
-    return REQUEST_METHOD === 'GET' ? true : false;
+    return REQUEST_METHOD === 'GET';
 }
 
 function isPost()
 {
-    return REQUEST_METHOD === 'POST' ? true : false;
+    return REQUEST_METHOD === 'POST';
 }
 
 function isXmlHttpRequest()
@@ -472,22 +472,22 @@ function isXmlHttpRequest()
 
 function isCli()
 {
-    return REQUEST_METHOD === 'CLI' ? true : false;
+    return REQUEST_METHOD === 'CLI';
 }
 
 function isPut()
 {
-    return REQUEST_METHOD === 'PUT' ? true : false;
+    return REQUEST_METHOD === 'PUT';
 }
 
 function isOptions()
 {
-    return REQUEST_METHOD === 'OPTIONS' ? true : false;
+    return REQUEST_METHOD === 'OPTIONS';
 }
 
 function isDelete()
 {
-    return REQUEST_METHOD === 'DELETE' ? true : false;
+    return REQUEST_METHOD === 'DELETE';
 }
 
 function autoload($class)
