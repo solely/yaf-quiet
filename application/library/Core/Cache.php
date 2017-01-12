@@ -81,7 +81,7 @@ class Cache
     protected function queue($key)
     {
         static $_handler = array(
-            'file' => array('F', 'F'),
+            'file' => array('\\Core\\Cache\\File::Fget', '\\Core\\Cache\\File::Fset'),
             'xcache' => array('xcache_get', 'xcache_set'),
             'apc' => array('apc_fetch', 'apc_store'),
         );

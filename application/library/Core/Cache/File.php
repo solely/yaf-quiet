@@ -167,4 +167,26 @@ class File extends Cache
         }
         return false;
     }
+
+    /**
+     * 获取缓存
+     * @param $name
+     * @return mixed
+     * @author solely 2017年1月12日18:45:37
+     */
+    public static function Fget($name)
+    {
+        return parent::getInstance('file',array())->$name;
+    }
+
+    /**
+     * 设置缓存
+     * @param $name
+     * @param $value
+     * @author solely 2017年1月12日18:48:51
+     */
+    public static function Fset($name, $value)
+    {
+        parent::getInstance('file',array())->$name = $value;
+    }
 }
