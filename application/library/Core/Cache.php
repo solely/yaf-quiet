@@ -8,6 +8,7 @@
 namespace Core;
 
 use Yaf\Exception;
+use Yaf\Registry;
 
 class Cache
 {
@@ -27,7 +28,7 @@ class Cache
     public function connect($type = '', $options = array())
     {
         if (empty($type)) {
-            $config_obj = Yaf_Registry::get("config");
+            $config_obj = Registry::get("config");
             $config_cache = $config_obj->cache->toArray();
             $type = $config_cache['data_cache_type'];
         }
