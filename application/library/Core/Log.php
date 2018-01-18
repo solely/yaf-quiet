@@ -18,6 +18,7 @@ namespace Core;
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Monolog\Formatter\LineFormatter;
 use Yaf\Application;
 use Yaf\Exception;
 
@@ -43,6 +44,10 @@ class Log
 
             if (empty(self::$loggerInstance[$logKey])) {
                 $stream = new StreamHandler($logDir, $this->loggerLevel);
+                if(DEBUG_MODE){
+                    $format = new LineFormatter(null, null, true);
+                    $stream->setFormatter($format);
+                }
                 $logger = new Logger($channelName);
                 $logger->pushHandler($stream);
                 self::$loggerInstance[$logKey] = $logger;
