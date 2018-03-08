@@ -1553,7 +1553,11 @@ class Model
 //                $config = C($config);
 //            }
             $configObj = Registry::get("config");
-            $configDb = $configObj->database->config->toArray();
+            if (!empty($config) && is_string($config)) {
+                $configDb = $configObj->database->$config->toArray();
+            } else {
+                $configDb = $configObj->database->config->toArray();
+            }
             $this->_db[$linkNum] = Db::getInstance($configDb);
         } elseif (NULL === $config) {
             $this->_db[$linkNum]->close(); // 关闭数据库连接
