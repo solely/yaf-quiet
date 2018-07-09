@@ -52,8 +52,10 @@ class Upload
      */
     public function __construct($config = array(), $driver = '', $driverConfig = null)
     {
+        $iniConfig = Registry::get('config')->upload->config->toArray();
+        
         /* 获取配置 */
-        $this->config = array_merge($this->config, $config);
+        $this->config = array_merge($this->config, $config, $iniConfig);
 
         /* 设置上传驱动 */
         $this->setDriver($driver, $driverConfig);
